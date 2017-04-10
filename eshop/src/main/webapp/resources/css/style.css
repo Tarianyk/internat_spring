@@ -1,0 +1,83 @@
+h4 {
+    color: #001C27;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+input, textarea, button, label {
+    display: block;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #a5a5a5;
+    font-family: arial;
+    font-size: 14px;
+    width: 200px;
+    color: #797C80;
+}
+
+input:focus, textarea:focus {
+    background: #f3f3f3;
+}
+
+input {
+    height: 40px;
+    padding: 0 10px;
+}
+
+textarea {
+    height: 100px;
+    padding: 10px 10px;
+}
+
+input.error, textarea.error {
+    border: 1px solid red;
+}
+
+label.error {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+input.valid, textarea.valid {
+    border: 1px solid green;
+}
+
+.ok {
+    display: none !important;
+}
+
+button {
+    background: #BB002B;
+    padding: 10px 40px;
+    color: #fff;
+    border: 2px solid #BB002B;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: transparent;
+    color: #BB002B;
+}
+
+#contact {
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #a5a5a5;
+    width: 222px;
+}
+
+.error_spring {
+    color: red; font-weight: bold;
+}

@@ -1,0 +1,17 @@
+#spring:
+#  datasource:
+#    platform: mysql
+#    url: jdbc:mysql://localhost:3306/spring
+#    username: root
+#    password: root
+#    driverClassName: com.mysql.jdbc.Driver
+#
+#---
+
+  logging:
+    file: logs/log.log
+  pattern:
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ROOT: DEBUG
+    ua.home: DEBUG
