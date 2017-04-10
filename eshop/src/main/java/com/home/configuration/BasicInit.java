@@ -20,6 +20,11 @@ public class BasicInit implements WebApplicationInitializer {
 
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/");
+
+        ServletRegistration.Dynamic h2ConsoleServlet = container
+                .addServlet("H2Console", new org.h2.server.web.WebServlet());
+        h2ConsoleServlet.addMapping("/console/*");
+        h2ConsoleServlet.setLoadOnStartup(1);
     }
 
 }

@@ -4,11 +4,12 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Size;
 
 @Data
 //TODO: add check for matching password
-public class User {
+public class UserDto {
     @NotEmpty(message = "Field should not be an empty")
     @Size(min = 3, max = 6, message = "Error in size")
     private String name;

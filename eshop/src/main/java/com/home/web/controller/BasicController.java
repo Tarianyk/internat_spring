@@ -1,6 +1,6 @@
 package com.home.web.controller;
 
-import com.home.domain.User;
+import com.home.domain.UserDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +21,7 @@ public class BasicController {
     }
 
     @ModelAttribute(value = "registration_bean")
-    public User init() {
-        return new User();
+    public UserDto init() {
+        return new UserDto();
     }
 }
