@@ -2,8 +2,11 @@ package com.home.configuration;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -18,7 +21,11 @@ import javax.sql.DataSource;
 @Configuration
 @EnableJpaRepositories(basePackages = "com.home.repository")
 @EnableTransactionManagement
+@PropertySource("classpath:database_config.properties")
 public class DataBaseConfiguration {
+
+    @Autowired
+    private Environment env;
 
     @Bean
     public DataSource dataSource() {
@@ -27,13 +34,13 @@ public class DataBaseConfiguration {
 
     private HikariConfig getConfiguration() {
         HikariConfig config = new HikariConfig();
-        config.setDriverClassName("org.h2.Driver");
-        config.setJdbcUrl("jdbc:h2:mem:testdb");
-        config.setUsername("sa");
-        config.setPassword("");
-        config.addDataSourceProperty("cachePrepStmts", "true");
-        config.addDataSourceProperty("prepStmtCacheSize", "20");
-        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        config.setDriverClassName(env.getProperty("driver.db"));
+        config.setJdbcUrl(env.getProperty("url.db"));
+        config.setUsername(env.getProperty("username.db"));
+        config.setPassword(env.getProperty("password.db"));
+        config.addDataSourceProperty("cachePrepStmts", env.getProperty("cachePrepStmts.db"));
+        config.addDataSourceProperty("prepStmtCacheSize", env.getProperty("prepStmtCacheSize.db"));
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", env.getProperty("prepStmtCacheSqlLimit.db"));
 
         return config;
     }
