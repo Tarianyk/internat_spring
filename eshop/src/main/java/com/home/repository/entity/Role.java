@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "role")
+@Table(name = "role_test_lol")
 @Data
 public class Role {
     @Id
@@ -16,5 +16,5 @@ public class Role {
     private String id;
     @Column(name = "name")
     private String name;
-    private Set<User> users;
+//    private Set<User> users;
 }

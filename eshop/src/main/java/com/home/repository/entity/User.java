@@ -4,10 +4,9 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_test_lol")
 @Data
 public class User {
     @Id
@@ -20,5 +19,5 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
-    private Set<Role> roles;
+//    private Set<Role> roles;
 }

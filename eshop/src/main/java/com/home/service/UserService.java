@@ -1,13 +1,14 @@
 package com.home.service;
 
 import com.home.domain.UserDto;
-import com.home.repository.IUserReposiroty;
+import com.home.repository.IUserRepository;
 import com.home.repository.entity.Role;
 import com.home.repository.entity.User;
 import com.home.util.PasswordEncode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +16,8 @@ import java.util.Set;
 public class UserService implements IUserService {
 
     @Autowired
-    private IUserReposiroty iUserReposiroty;
+//    @Resource(name = "test")
+    private IUserRepository iUserReposiroty;
 
     @Override
     public void createUser(UserDto userDto) {
