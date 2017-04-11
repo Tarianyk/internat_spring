@@ -9,15 +9,14 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <springframework.version>4.0.6.RELEASE</springframework.version>
+        <springframework.version>RELEASE</springframework.version>
+        <jpa.version>1.10.5.RELEASE</jpa.version>
+        <mvc.version>4.2.5.RELEASE</mvc.version>
+        <web.version>4.2.5.RELEASE</web.version>
+        <crypro.version>3.1.0.RELEASE</crypro.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -36,14 +35,11 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.12</version>
         </dependency>
-
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
@@ -54,31 +50,21 @@
             <artifactId>hibernate-validator</artifactId>
             <version>5.0.1.Final</version>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.2.9.Final</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-crypto</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.21</version>
         </dependency>
-
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -86,39 +72,36 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>4.3.7.RELEASE</version>
-        </dependency>
-        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.193</version>
             <!--<scope>provided</scope>-->
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.springframework</groupId>-->
-        <!--<artifactId>spring-jdbc</artifactId>-->
-        <!--<version>2.0.6</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.data</groupId>-->
-        <!--<artifactId>spring-data-jpa</artifactId>-->
-        <!--<version>1.11.1.RELEASE</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>1.7.0.RELEASE</version>
+            <version>${jpa.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-            <version>1.1.8.RELEASE</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${mvc.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>${crypro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${web.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -145,3 +128,4 @@
         </plugins>
     </build>
 </project>
+
