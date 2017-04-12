@@ -1,4 +1,4 @@
-package com.home.web.controller;
+package com.home.controller;
 
 import com.home.domain.UserDto;
 import org.springframework.stereotype.Controller;

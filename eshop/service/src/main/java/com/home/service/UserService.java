@@ -19,6 +19,7 @@ public class UserService implements IUserService {
 
     @Override
     public void createUser(UserDto userDto) {
+        log.info("------------------------------------------------------");
         User user = extractToUser(userDto);
         iUserReposiroty.save(user);
     }

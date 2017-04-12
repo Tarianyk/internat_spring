@@ -1,7 +1,8 @@
-package com.home.web.controller;
+package com.home.controller;
 
 import com.home.domain.UserDto;
 import com.home.service.IUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -13,6 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "user")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -23,7 +25,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-
+        log.info("----------------------------------------------------!!!!!");
         userService.createUser(userDto);
 
         return "index";
