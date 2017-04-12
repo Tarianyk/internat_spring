@@ -8,7 +8,6 @@ import com.home.util.PasswordEncode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +15,6 @@ import java.util.Set;
 public class UserService implements IUserService {
 
     @Autowired
-//    @Resource(name = "test")
     private IUserRepository iUserReposiroty;
 
     @Override
@@ -31,6 +29,7 @@ public class UserService implements IUserService {
         user.setName(userDto.getName());
         String encodedPass = PasswordEncode.encodePassword(userDto.getPassword());
         user.setPassword(encodedPass);
+        user.setRoles(getDefaultRole());
 
         return user;
     }
@@ -38,7 +37,8 @@ public class UserService implements IUserService {
     private Set<Role> getDefaultRole() {
         Set<Role> roles = new HashSet<>();
         Role role = new Role();
+        role.setName("UNKNOWN");
 //        role.setId();
-        return null;
+        return roles;
     }
 }

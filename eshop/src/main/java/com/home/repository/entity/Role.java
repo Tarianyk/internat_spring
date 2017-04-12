@@ -7,14 +7,17 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "role_test_lol")
+@Table(name = "role")
 @Data
 public class Role {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    private String roleId;
     @Column(name = "name")
     private String name;
-//    private Set<User> users;
+    @ManyToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            targetEntity = User.class)
+    private Set<User> users;
 }
