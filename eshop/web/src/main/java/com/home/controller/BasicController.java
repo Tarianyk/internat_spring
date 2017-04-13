@@ -15,6 +15,11 @@ public class BasicController {
         return "index";
     }
 
+    @RequestMapping(value = "error", method = RequestMethod.GET)
+    public String error() {
+        return "error";
+    }
+
     @RequestMapping(value = "registration", method = RequestMethod.GET)
     public String registration() {
         return "registration";

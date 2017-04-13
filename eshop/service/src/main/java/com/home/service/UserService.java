@@ -1,26 +1,32 @@
 package com.home.service;
 
 import com.home.domain.UserDto;
-import com.home.repository.IUserRepository;
+import com.home.repository.RoleRepository;
+import com.home.repository.UserRepository;
 import com.home.repository.entity.Role;
 import com.home.repository.entity.User;
+import com.home.service.impl.IUserService;
 import com.home.util.PasswordEncode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Slf4j
+@Transactional
 public class UserService implements IUserService {
 
     @Autowired
-    private IUserRepository iUserReposiroty;
+    private UserRepository iUserReposiroty;
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     public void createUser(UserDto userDto) {
-        log.info("------------------------------------------------------");
         User user = extractToUser(userDto);
+
         iUserReposiroty.save(user);
     }
 
@@ -30,16 +36,11 @@ public class UserService implements IUserService {
         user.setName(userDto.getName());
         String encodedPass = PasswordEncode.encodePassword(userDto.getPassword());
         user.setPassword(encodedPass);
-        user.setRoles(getDefaultRole());
+
+        List<Role> roles = roleRepository.findAll();
+        user.setRoles(new HashSet<>(roles));
 
         return user;
     }
 
-    private Set<Role> getDefaultRole() {
-        Set<Role> roles = new HashSet<>();
-        Role role = new Role();
-        role.setName("UNKNOWN");
-//        role.setId();
-        return roles;
-    }
 }

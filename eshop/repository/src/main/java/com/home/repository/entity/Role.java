@@ -16,8 +16,9 @@ public class Role {
     private String roleId;
     @Column(name = "name")
     private String name;
-    @ManyToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            targetEntity = User.class)
+    @ManyToMany(cascade = CascadeType.ALL,
+                fetch = FetchType.LAZY,
+                mappedBy = "roles")
     private Set<User> users;
 }
+

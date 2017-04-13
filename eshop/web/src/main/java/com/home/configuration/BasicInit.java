@@ -11,7 +11,6 @@ import javax.servlet.ServletRegistration;
 public class BasicInit implements WebApplicationInitializer {
 
     public void onStartup(ServletContext container) throws ServletException {
-
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(MvcConfiguration.class);
         ctx.setServletContext(container);

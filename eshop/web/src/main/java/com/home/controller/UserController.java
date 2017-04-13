@@ -1,7 +1,8 @@
 package com.home.controller;
 
 import com.home.domain.UserDto;
-import com.home.service.IUserService;
+import com.home.service.impl.IRoleService;
+import com.home.service.impl.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,16 +20,25 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+    @Autowired
+    private IRoleService roleService;
 
     @RequestMapping(value = "registration", method = RequestMethod.POST)
     public String addUserToDatabase(@ModelAttribute("registration_bean") @Valid UserDto userDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-        log.info("----------------------------------------------------!!!!!");
+        createRoles();
+
         userService.createUser(userDto);
 
         return "index";
+    }
+
+    private void createRoles() {
+        if (!roleService.checkRoles()) {
+            roleService.createRoles();
+        }
     }
 
     @ModelAttribute(value = "registration_bean")
